@@ -1,20 +1,23 @@
 
-const input = document.getElementById("input");
 
-
-
-function checkPalindrome(inputString) {
-    
-    const inputString = input;
-    let isPalindrome = false;
-    let inputStringLength = inputString.length;
-
-    for (let i = 0; i <= inputString.length; i++) {
-        if (inputString[i] === inputString[inputString.length-i]) {
-            isPalindrome = true;    
-        } else  {
-            isPalindrome = false;
-        }
+function validateInput() {
+    const input = document.getElementById("input");
+    if (input != null) {
+        checkPalindrome();
+    } else {
+        alert ("Enter a word or phrase!");
     }
-    return isPalindrome;
+}
+
+function checkPalindrome() {
+    const ogString = input.value;
+    const reverseString = ogString.split("").reverse().join("");
+
+    if (reverseString === ogString) {
+        alert("It\'s a Palindrome")
+        return true;
+    } else {
+        alert("It\'s not a Palindrome")
+        return false;
+    }
 }
