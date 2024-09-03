@@ -11,14 +11,25 @@ const quotes = [
     "I am not a product of my circumstances. I am a product of my decisions. — Stephen Covey"
 ];
 
-//const usedIndexes = new set();
 const quoteP = document.getElementById("quote");
 const authorP = document.getElementById("author");
+const usedIndexes = new Set();
 
 
 function generate() {
-    let rand = Math.floor(Math.random() * quotes.length);
-    let parts = quotes[rand].split(" — ");
-    quoteP.innerHTML = parts[0];
-    authorP.innerHTML = " — " + parts[1];
+
+    if (usedIndexes.size >= quotes.length) {
+        usedIndexes.clear();
+    }
+    
+    while (true) {
+        const rand = Math.floor(Math.random() * quotes.length);
+        if (usedIndexes.has(rand)) continue
+        
+        let parts = quotes[rand].split(" — ");
+        quoteP.innerHTML = parts[0];
+        authorP.innerHTML = parts[1];
+        usedIndexes.add(rand);
+        break;
+    }
 }
