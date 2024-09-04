@@ -20,7 +20,7 @@ function timer() {
 }
 
 function startClock() {
-    if (interval) stopClock()
+    if (interval) return;
     interval = setInterval(timer, 1000);
     time.style.color = "red";
 }
@@ -28,7 +28,7 @@ function startClock() {
 function stopClock() {
     time.style.color = "lightgray";
     clearInterval(interval);
-
+    interval = null;
 }
 
 function resetClock() {
