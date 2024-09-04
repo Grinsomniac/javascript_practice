@@ -22,14 +22,18 @@ function timer() {
 function startClock() {
     if (interval) stopClock()
     interval = setInterval(timer, 1000);
+    time.style.color = "red";
 }
 
 function stopClock() {
+    time.style.color = "lightgray";
     clearInterval(interval);
+
 }
 
 function resetClock() {
     stopClock();
     secondsElapsed = 0;
     setTime();
+    time.style.color = "black";
 }
