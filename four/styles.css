@@ -1,0 +1,24 @@
+body {
+    text-align: center;
+    margin-top: 10%;
+}
+
+h1 {
+    font-size: 48px;
+    font-family: Roboto, sans-serif;
+}
+
+h3 {
+    font-size: 56px;
+    font-family: Roboto, sans-serif;
+    margin-top: 5%;
+}
+
+button {
+    font-size: 30px;
+    font-family: Roboto, sans-serif;
+}
+
+#time {
+    color: black;
+}
