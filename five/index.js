@@ -1,8 +1,23 @@
 let items = [];
 
+const itemsDiv = document.getElementById("items")
+
+function renderItems() {
+    items.Div.innerHTML = null;
+
+    for (const [idx, item] of Object.entries(items)) {
+        const container = document.getElement("div")
+        container.style.marginBotton = "10px"
+        
+        const text = document.createElement("p")
+        text.textContent = item;
+
+        itemsDiv.appendChild(text)
+    }
+}
+
 function loadItems() {}
 
-function renderItems() {}
 
 function saveItems() {}
 
