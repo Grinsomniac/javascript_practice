@@ -1,0 +1,10 @@
+body {
+    text-align: center;
+    margin-top: 8%;
+    font-size: 36px;
+}
+
+#itemInput, button {
+    font-size: 24px;
+}
+
