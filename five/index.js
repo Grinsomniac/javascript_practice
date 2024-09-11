@@ -12,16 +12,33 @@ function renderItems() {
         container.style.marginBotton = "10px"
         
         const text = document.createElement("p")
+        text.style.display = "inline"
+        text.style.marginRight = "10px"
         text.textContent = item;
 
-        itemsDiv.appendChild(text)
+        const button = document.createElement("button")
+        button.textContent = "Delete"
+        button.onclick = () => {removeItem(idx)}
+
+        container.appendChild(text)
+        container.appendChild(button)
+
+        itemsDiv.appendChild(container)
     }
 }
 
-function loadItems() {}
+function loadItems() {
+    const oldItems = localStorage.getItem(storageKey);
+    if (oldItems) {
+        items = JSON.parse(oldItems);
+    }
+    renderItems();
+}
 
-
-function saveItems() {}
+function saveItems() {
+    const stringItems = JSON.stringify(items);
+    localStorage.setItem(storageKey, stringItems);
+}
 
 function addItem() {
     items.push(document.getElementById("itemInput"))
