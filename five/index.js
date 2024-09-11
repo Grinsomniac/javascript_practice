@@ -5,10 +5,10 @@ const input = document.getElementById("itemInput")
 const storageKey = "items";
 
 function renderItems() {
-    items.Div.innerHTML = null;
+    itemsDiv.innerHTML = null;
 
     for (const [idx, item] of Object.entries(items)) {
-        const container = document.getElement("div")
+        const container = document.createElement("div")
         container.style.marginBotton = "10px"
         
         const text = document.createElement("p")
@@ -41,9 +41,21 @@ function saveItems() {
 }
 
 function addItem() {
-    items.push(document.getElementById("itemInput"))
-    console.log(items);
-    
+   const value = input.value;
+   if (!value) {
+    alert("Can't add empty item");
+    return;
+   }
+   items.push(value);
+   renderItems();
+   input.value = "";
+   saveItems();
 }
 
-function removeItem() {}
+function removeItem(idx) {
+    items.splice(idx, 1)
+    renderItems();
+    saveItems();
+}
+
+document.addEventListener("DOMContentLoaded", loadItems);
