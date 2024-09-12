@@ -11,13 +11,10 @@
   <input type="text" id="input" placeholder="Enter a word">
   <button type="submit" onClick="lastLetter()">Submit</button>
   <script>
-    const word = document.getElementbyId("input");
-    
-    function lastLetter(string = word) {
-      return string.charAt(string.length - 1);
+    function lastLetter() {
+      const word = document.getElementById("input").value;
+      console.log(word.charAt(word.length - 1));
     }
-  
-    console.log(lastLetter(word))
   </script>
 </body>
 </html>
